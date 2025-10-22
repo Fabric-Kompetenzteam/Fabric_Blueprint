@@ -14,7 +14,7 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Silber",
+        "name": "Load_Silber",
         "dependsOn": [
           {
             "activity": "Load_Bronze",
@@ -40,7 +40,7 @@
         "name": "Gold_DimCustomer",
         "dependsOn": [
           {
-            "activity": "Silber",
+            "activity": "Load_Silber",
             "dependencyConditions": [
               "Succeeded"
             ]
@@ -63,7 +63,7 @@
         "name": "Gold_DimProduct",
         "dependsOn": [
           {
-            "activity": "Silber",
+            "activity": "Load_Silber",
             "dependencyConditions": [
               "Succeeded"
             ]
