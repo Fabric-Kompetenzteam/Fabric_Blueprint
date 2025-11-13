@@ -1,0 +1,115 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/1.4.0/schema.json",
+  "displayName": "Bestandsmenge (in BE)",
+  "name": "ad38ee12ba1609c8a89e",
+  "options": {
+    "targetVisualNames": [],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "779d7adb9340d6d8aa09",
+    "filters": {
+      "byExpr": [
+        {
+          "name": "fb97d42b8b0896beafa7",
+          "type": "Advanced",
+          "filter": {
+            "Version": 2,
+            "From": [
+              {
+                "Name": "d",
+                "Entity": "Datum",
+                "Type": 0
+              }
+            ],
+            "Where": [
+              {
+                "Condition": {
+                  "Comparison": {
+                    "ComparisonKind": 4,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "TagRelativ"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "0L"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "Datum"
+                }
+              },
+              "Property": "TagRelativ"
+            }
+          },
+          "howCreated": 1
+        }
+      ]
+    },
+    "sections": {
+      "779d7adb9340d6d8aa09": {
+        "visualContainers": {},
+        "visualContainerGroups": {
+          "9bc771d7e9cdbdf09e38": {
+            "isHidden": true
+          },
+          "8a9ee6f3251829179b7a": {
+            "isHidden": true
+          },
+          "86680dd040707c0db73e": {
+            "isHidden": false
+          },
+          "0713e5149dc2ddf0f281": {
+            "isHidden": true
+          },
+          "16f8d4faff33df7f1c52": {
+            "isHidden": true
+          },
+          "378eb13405a303e89518": {
+            "isHidden": true
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              },
+              "visible": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

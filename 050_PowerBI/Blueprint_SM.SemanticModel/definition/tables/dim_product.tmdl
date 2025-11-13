@@ -1,0 +1,44 @@
+table dim_product
+	lineageTag: bdfd8ef8-77b3-4467-8e59-3e2c680494c7
+	sourceLineageTag: [curated].[dim_product]
+
+	column ItemID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 8609ee6e-c35e-4cdc-bc33-a72704553955
+		sourceLineageTag: ItemID
+		summarizeBy: none
+		sourceColumn: ItemID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 62c25608-2e1a-4cd1-be37-da558bd412c4
+		sourceLineageTag: ItemName
+		summarizeBy: none
+		sourceColumn: ItemName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemInfo
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cf00d7bf-b54e-4546-aa25-99bd2040ad9b
+		sourceLineageTag: ItemInfo
+		summarizeBy: none
+		sourceColumn: ItemInfo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_product = entity
+		mode: directLake
+		source
+			entityName: dim_product
+			schemaName: curated
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

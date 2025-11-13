@@ -1,0 +1,64 @@
+table dim_customer
+	lineageTag: ab4d3e52-f6b1-4c18-8f29-7f5d6cca2e3c
+	sourceLineageTag: [curated].[dim_customer]
+
+	column CustomerID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 44ffddeb-0de7-4dcb-ab38-68fd210a6259
+		sourceLineageTag: CustomerID
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 10178ee3-7060-4f2a-8d03-b869b72f49ae
+		sourceLineageTag: CustomerName
+		summarizeBy: none
+		sourceColumn: CustomerName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d4da6a09-ec83-4db4-be6b-6f7e3ca26f8b
+		sourceLineageTag: Email
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 30b95034-f207-456a-abff-c33547c8baf0
+		sourceLineageTag: FirstName
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3cc6e79f-665f-408b-8f47-de5e4ee8e866
+		sourceLineageTag: LastName
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_customer = entity
+		mode: directLake
+		source
+			entityName: dim_customer
+			schemaName: curated
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

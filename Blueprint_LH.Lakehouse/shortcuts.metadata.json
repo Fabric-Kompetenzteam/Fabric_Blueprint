@@ -1,0 +1,15 @@
+[
+  {
+    "name": "stockmarket",
+    "path": "/Tables/event",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/stockmarket",
+        "itemId": "3e3e84de-f666-8d20-4d89-79bef7e6075d",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "KustoDatabase"
+      }
+    }
+  }
+]
