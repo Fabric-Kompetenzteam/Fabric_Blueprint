@@ -1,0 +1,72 @@
+table dim_date
+	lineageTag: 299df10b-b7fa-46b0-9c4b-5ac01bdac020
+	sourceLineageTag: [curated].[dim_date]
+	dataCategory: Time
+
+	column DateID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f59213d9-dbc1-47b6-932c-2802bffacaea
+		sourceLineageTag: DateID
+		summarizeBy: none
+		sourceColumn: DateID
+
+		annotation SummarizationSetBy = Automatic
+
+	column FullDate
+		dataType: dateTime
+		isKey
+		formatString: Short Date
+		sourceProviderType: date
+		lineageTag: d1484267-cc91-4470-81e6-33dcbda87f3e
+		sourceLineageTag: FullDate
+		summarizeBy: none
+		sourceColumn: FullDate
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+	column Day
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 603dffeb-5f4e-4da4-a920-398a88d2e911
+		sourceLineageTag: Day
+		summarizeBy: none
+		sourceColumn: Day
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 984fc8bf-de05-450f-83d0-afa16d164fcc
+		sourceLineageTag: Month
+		summarizeBy: none
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e1bb0692-e7f3-4b76-86d8-46852c1fb079
+		sourceLineageTag: Year
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_date = entity
+		mode: directLake
+		source
+			entityName: dim_date
+			schemaName: curated
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

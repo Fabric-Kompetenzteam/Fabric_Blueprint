@@ -1,0 +1,112 @@
+table fact_sales
+	lineageTag: 05389f62-fd9e-4605-a55a-39d66744da43
+	sourceLineageTag: [curated].[fact_sales]
+
+	column UnitPrice
+		dataType: double
+		sourceProviderType: decimal(18, 2)
+		lineageTag: 025dceb9-5fa2-4991-8f8d-f2f7cec4670d
+		sourceLineageTag: UnitPrice
+		summarizeBy: sum
+		sourceColumn: UnitPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Tax
+		dataType: double
+		sourceProviderType: decimal(18, 2)
+		lineageTag: 96643b6e-fa75-46d0-95ac-bc00785bb23e
+		sourceLineageTag: Tax
+		summarizeBy: sum
+		sourceColumn: Tax
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CustomerID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 26552236-6d1c-4e74-b7e0-a28f7cdc48f9
+		sourceLineageTag: CustomerID
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 7e965406-7396-4af7-a8f8-c15a1842824f
+		sourceLineageTag: ItemID
+		summarizeBy: none
+		sourceColumn: ItemID
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderDateID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7d8cb866-595c-48b3-be81-ec61be361502
+		sourceLineageTag: OrderDateID
+		summarizeBy: none
+		sourceColumn: OrderDateID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrderNumber
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e1225483-ce62-4286-97a3-0b897c522519
+		sourceLineageTag: SalesOrderNumber
+		summarizeBy: none
+		sourceColumn: SalesOrderNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrderLineNumber
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e92c5385-90cb-4388-b8ac-62544ecf4221
+		sourceLineageTag: SalesOrderLineNumber
+		summarizeBy: sum
+		sourceColumn: SalesOrderLineNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ddc1daf0-d752-472e-9acd-fb8fa4b72e21
+		sourceLineageTag: Quantity
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column FactKeyHash
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 01396999-04a0-4f49-844e-2f82e355570d
+		sourceLineageTag: FactKeyHash
+		summarizeBy: none
+		sourceColumn: FactKeyHash
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_sales = entity
+		mode: directLake
+		source
+			entityName: fact_sales
+			schemaName: curated
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

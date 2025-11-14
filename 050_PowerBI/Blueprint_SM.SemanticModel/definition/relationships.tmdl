@@ -1,0 +1,15 @@
+relationship 41a40f49-5f51-b185-7467-78d7c6d2379d
+	relyOnReferentialIntegrity
+	fromColumn: fact_sales.ItemID
+	toColumn: dim_product.ItemID
+
+relationship 2c2131df-5785-a1f8-d32e-02c523ca557f
+	relyOnReferentialIntegrity
+	fromColumn: fact_sales.OrderDateID
+	toColumn: dim_date.DateID
+
+relationship 21103963-4a33-257f-68c6-11faa7c9be61
+	relyOnReferentialIntegrity
+	fromColumn: fact_sales.CustomerID
+	toColumn: dim_customer.CustomerID
+
