@@ -41,3 +41,14 @@ CREATE SCHEMA IF NOT EXISTS curated
 -- META   "language": "sparksql",
 -- META   "language_group": "synapse_pyspark"
 -- META }
+
+-- CELL ********************
+
+CREATE SCHEMA IF NOT EXISTS serving
+
+-- METADATA ********************
+
+-- META {
+-- META   "language": "sparksql",
+-- META   "language_group": "synapse_pyspark"
+-- META }
