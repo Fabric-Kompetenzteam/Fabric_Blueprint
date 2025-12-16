@@ -1,12 +1,11 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
-    "type": "Eventhouse",
-    "displayName": "Blueprint_EH",
-    "description": "Blueprint_EH"
+    "type": "Notebook",
+    "displayName": "serving_ddl_vdimdate"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "4cff3a87-160f-90ad-477b-d80a48992d48"
+    "logicalId": "d7260814-f1ab-9c89-4609-9c9020ba0d50"
   }
 }

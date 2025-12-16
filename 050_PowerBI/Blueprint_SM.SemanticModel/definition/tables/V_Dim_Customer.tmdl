@@ -1,12 +1,12 @@
-table dim_customer
-	lineageTag: ab4d3e52-f6b1-4c18-8f29-7f5d6cca2e3c
-	sourceLineageTag: [curated].[dim_customer]
+table V_Dim_Customer
+	lineageTag: 6001415e-2ae6-4f2a-bf81-caf164f3ddf9
+	sourceLineageTag: [serving].[V_Dim_Customer]
 
 	column CustomerID
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 44ffddeb-0de7-4dcb-ab38-68fd210a6259
+		lineageTag: 4b95da77-c297-4417-96df-f265a70bfed9
 		sourceLineageTag: CustomerID
 		summarizeBy: none
 		sourceColumn: CustomerID
@@ -16,7 +16,7 @@ table dim_customer
 	column CustomerName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 10178ee3-7060-4f2a-8d03-b869b72f49ae
+		lineageTag: 7df29645-d346-44e4-94b6-fe87bf4ae999
 		sourceLineageTag: CustomerName
 		summarizeBy: none
 		sourceColumn: CustomerName
@@ -26,7 +26,7 @@ table dim_customer
 	column Email
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: d4da6a09-ec83-4db4-be6b-6f7e3ca26f8b
+		lineageTag: 7f5197c6-ff4d-4e8f-a9d1-52622d2e7b03
 		sourceLineageTag: Email
 		summarizeBy: none
 		sourceColumn: Email
@@ -36,7 +36,7 @@ table dim_customer
 	column FirstName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 30b95034-f207-456a-abff-c33547c8baf0
+		lineageTag: 1e859b4e-688c-4a7d-a08b-e1707751bc0e
 		sourceLineageTag: FirstName
 		summarizeBy: none
 		sourceColumn: FirstName
@@ -46,18 +46,18 @@ table dim_customer
 	column LastName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 3cc6e79f-665f-408b-8f47-de5e4ee8e866
+		lineageTag: bbc73df9-eadc-457f-8729-df8e7debeb20
 		sourceLineageTag: LastName
 		summarizeBy: none
 		sourceColumn: LastName
 
 		annotation SummarizationSetBy = Automatic
 
-	partition dim_customer = entity
+	partition V_Dim_Customer = entity
 		mode: directLake
 		source
-			entityName: dim_customer
-			schemaName: curated
+			entityName: V_Dim_Customer
+			schemaName: serving
 			expressionSource: DatabaseQuery
 
 	annotation PBI_ResultType = Table

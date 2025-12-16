@@ -1,12 +1,11 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
-    "type": "KQLDatabase",
-    "displayName": "Blueprint_EH",
-    "description": "Blueprint_EH"
+    "type": "Notebook",
+    "displayName": "serving_ddl_vdimproduct"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "3e3e84de-f666-8d20-4d89-79bef7e6075d"
+    "logicalId": "011cf228-97bd-90aa-46d6-1af34e0d90ce"
   }
 }

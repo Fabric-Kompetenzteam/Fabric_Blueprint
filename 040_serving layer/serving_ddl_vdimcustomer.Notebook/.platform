@@ -1,12 +1,11 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
-    "type": "KQLDashboard",
-    "displayName": "Eventstream_Dashboard",
-    "description": "Eventstream_Dashboard"
+    "type": "Notebook",
+    "displayName": "serving_ddl_vdimcustomer"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "f1616a18-655e-b453-4812-ce4f6e5288ea"
+    "logicalId": "4fe05fc9-62c3-a4b7-4e68-30cb972a9014"
   }
 }

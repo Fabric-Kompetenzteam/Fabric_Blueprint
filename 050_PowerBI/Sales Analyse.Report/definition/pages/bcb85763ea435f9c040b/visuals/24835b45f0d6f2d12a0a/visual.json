@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "24835b45f0d6f2d12a0a",
   "position": {
     "x": 507.5,
@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 116.66666666666667,
     "width": 760.83333333333337,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_date"
+                      "Entity": "V_Dim_Date"
                     }
                   },
                   "Property": "Year"
                 }
               },
-              "queryRef": "dim_date.Year",
+              "queryRef": "V_Dim_Date.Year",
               "nativeQueryRef": "Year",
               "active": true
             },
@@ -35,13 +35,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_date"
+                      "Entity": "V_Dim_Date"
                     }
                   },
                   "Property": "Month"
                 }
               },
-              "queryRef": "dim_date.Month",
+              "queryRef": "V_Dim_Date.Month",
               "nativeQueryRef": "Month",
               "active": true
             },
@@ -50,15 +50,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_date"
+                      "Entity": "V_Dim_Date"
                     }
                   },
                   "Property": "FullDate"
                 }
               },
-              "queryRef": "dim_date.FullDate",
+              "queryRef": "V_Dim_Date.FullDate",
               "nativeQueryRef": "FullDate",
-              "active": false
+              "active": true
             }
           ]
         },
@@ -69,15 +69,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Schema": "extension",
-                      "Entity": "fact_sales"
+                      "Entity": "V_Fact_Sales"
                     }
                   },
                   "Property": "Δ Revenue PY"
                 }
               },
-              "queryRef": "fact_sales.Δ Revenue PY",
-              "nativeQueryRef": "Δ Revenue PY"
+              "queryRef": "V_Fact_Sales.Δ Revenue PY",
+              "nativeQueryRef": "Δ Revenue PY1"
             }
           ]
         }
@@ -89,7 +88,7 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "dim_date"
+                    "Entity": "V_Dim_Date"
                   }
                 },
                 "Property": "Year"
@@ -212,25 +211,7 @@
           "properties": {}
         },
         {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Schema": "extension",
-                          "Entity": "fact_sales"
-                        }
-                      },
-                      "Property": "Color Δ Revenue PY"
-                    }
-                  }
-                }
-              }
-            }
-          },
+          "properties": {},
           "selector": {
             "data": [
               {

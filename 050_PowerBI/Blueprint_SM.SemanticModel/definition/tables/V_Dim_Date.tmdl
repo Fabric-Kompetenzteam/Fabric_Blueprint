@@ -1,71 +1,81 @@
-table dim_date
-	lineageTag: 299df10b-b7fa-46b0-9c4b-5ac01bdac020
-	sourceLineageTag: [curated].[dim_date]
-	dataCategory: Time
+table V_Dim_Date
+	lineageTag: ad0769f6-c6e9-4e7a-a04f-26fa79ad64e0
+	sourceLineageTag: [serving].[V_Dim_Date]
 
 	column DateID
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: f59213d9-dbc1-47b6-932c-2802bffacaea
+		lineageTag: 6d74449a-6759-495f-b265-f14525c65392
 		sourceLineageTag: DateID
 		summarizeBy: none
 		sourceColumn: DateID
 
-		annotation SummarizationSetBy = Automatic
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
 
 	column FullDate
 		dataType: dateTime
-		isKey
 		formatString: Short Date
 		sourceProviderType: date
-		lineageTag: d1484267-cc91-4470-81e6-33dcbda87f3e
+		lineageTag: 494b340d-33dd-4258-8e66-c9fe70f332c4
 		sourceLineageTag: FullDate
 		summarizeBy: none
 		sourceColumn: FullDate
+
+		changedProperty = DataType
 
 		changedProperty = FormatString
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column Day
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 603dffeb-5f4e-4da4-a920-398a88d2e911
+		lineageTag: 8d814d35-4dea-429f-9764-15fc0a32d942
 		sourceLineageTag: Day
 		summarizeBy: none
 		sourceColumn: Day
 
-		annotation SummarizationSetBy = Automatic
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
 
 	column Month
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: 984fc8bf-de05-450f-83d0-afa16d164fcc
+		lineageTag: a011b305-f15c-42af-a53d-29fcf459c928
 		sourceLineageTag: Month
 		summarizeBy: none
 		sourceColumn: Month
 
-		annotation SummarizationSetBy = Automatic
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
 
 	column Year
 		dataType: int64
 		formatString: 0
 		sourceProviderType: int
-		lineageTag: e1bb0692-e7f3-4b76-86d8-46852c1fb079
+		lineageTag: 3551b93c-1945-4d58-97fc-65a2b73ced13
 		sourceLineageTag: Year
 		summarizeBy: none
 		sourceColumn: Year
 
-		annotation SummarizationSetBy = Automatic
+		changedProperty = SummarizeBy
 
-	partition dim_date = entity
+		annotation SummarizationSetBy = User
+
+	partition V_Dim_Date = entity
 		mode: directLake
 		source
-			entityName: dim_date
-			schemaName: curated
+			entityName: V_Dim_Date
+			schemaName: serving
 			expressionSource: DatabaseQuery
 
 	annotation PBI_ResultType = Table
