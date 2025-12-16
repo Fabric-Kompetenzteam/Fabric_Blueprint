@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "a718790a111597b26d90",
   "position": {
     "x": 7.5,
@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 539.16666666666674,
     "width": 467.5,
-    "tabOrder": 1000
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_product"
+                      "Entity": "V_Dim_Product"
                     }
                   },
                   "Property": "ItemName"
                 }
               },
-              "queryRef": "dim_product.ItemName",
-              "nativeQueryRef": "ItemName",
+              "queryRef": "V_Dim_Product.ItemName",
+              "nativeQueryRef": "ItemName1",
               "active": true
             },
             {
@@ -35,14 +35,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_customer"
+                      "Entity": "V_Dim_Customer"
                     }
                   },
                   "Property": "CustomerName"
                 }
               },
-              "queryRef": "dim_customer.CustomerName",
-              "nativeQueryRef": "CustomerName",
+              "queryRef": "V_Dim_Customer.CustomerName",
+              "nativeQueryRef": "CustomerName1",
               "active": false
             }
           ]
@@ -54,14 +54,13 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Schema": "extension",
-                      "Entity": "fact_sales"
+                      "Entity": "V_Fact_Sales"
                     }
                   },
                   "Property": "Revenue"
                 }
               },
-              "queryRef": "fact_sales.Revenue",
+              "queryRef": "V_Fact_Sales.Revenue",
               "nativeQueryRef": "Revenue"
             }
           ]
@@ -74,8 +73,7 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Schema": "extension",
-                    "Entity": "fact_sales"
+                    "Entity": "V_Fact_Sales"
                   }
                 },
                 "Property": "Revenue"

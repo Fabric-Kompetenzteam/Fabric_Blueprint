@@ -4,7 +4,7 @@
 
 -- META {
 -- META   "kernel_info": {
--- META     "name": "synapse_pyspark"
+-- META     "name": "sqldatawarehouse"
 -- META   },
 -- META   "dependencies": {
 -- META     "lakehouse": {
@@ -17,46 +17,29 @@
 -- META         }
 -- META       ]
 -- META     },
--- META     "environment": {}
+-- META     "warehouse": {
+-- META       "default_warehouse": "1859e201-543e-44fb-9243-bf794bc3b5b4",
+-- META       "known_warehouses": [
+-- META         {
+-- META           "id": "1859e201-543e-44fb-9243-bf794bc3b5b4",
+-- META           "type": "Lakewarehouse"
+-- META         }
+-- META       ]
+-- META     }
 -- META   }
 -- META }
 
 -- CELL ********************
 
-CREATE SCHEMA IF NOT EXISTS raw
+CREATE VIEW serving.V_Dim_Customer AS
+SELECT
+    CustomerID,
+    CustomerName,
+    Email,
+    FirstName,
+    LastName
+FROM curated.dim_customer;
 
--- METADATA ********************
-
--- META {
--- META   "language": "sparksql",
--- META   "language_group": "synapse_pyspark"
--- META }
-
--- CELL ********************
-
-CREATE SCHEMA IF NOT EXISTS stage
-
--- METADATA ********************
-
--- META {
--- META   "language": "sparksql",
--- META   "language_group": "synapse_pyspark"
--- META }
-
--- CELL ********************
-
-CREATE SCHEMA IF NOT EXISTS curated
-
--- METADATA ********************
-
--- META {
--- META   "language": "sparksql",
--- META   "language_group": "synapse_pyspark"
--- META }
-
--- CELL ********************
-
-CREATE SCHEMA IF NOT EXISTS serving
 
 -- METADATA ********************
 

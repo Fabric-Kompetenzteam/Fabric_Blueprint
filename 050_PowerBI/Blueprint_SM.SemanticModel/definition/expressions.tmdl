@@ -1,9 +1,11 @@
 expression DatabaseQuery =
 		let
-		    database = Sql.Database("TCNPYWGVOF7EJO662NV7Z2OVYM-4FWY6HNROCEUTLBWMYKD5YZM7U.datawarehouse.fabric.microsoft.com", "633ea021-3171-4a67-8ec0-4e0dfbe76c58")
+		    database = Sql.Database("TCNPYWGVOF7EJO662NV7Z2OVYM-4FWY6HNROCEUTLBWMYKD5YZM7U.datawarehouse.fabric.microsoft.com", "1859e201-543e-44fb-9243-bf794bc3b5b4")
 		in
 		    database
 	lineageTag: f80d3650-549b-48f0-9616-0c4242a93fa5
 
 	annotation PBI_IncludeFutureArtifacts = False
+
+	annotation PBI_RemovedChildren = [{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[curated].[fact_sales]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[curated].[dim_date]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[curated].[dim_product]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[curated].[dim_customer]"}},"objectType":"Table"}]
 

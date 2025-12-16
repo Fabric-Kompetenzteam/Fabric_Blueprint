@@ -1,22 +1,24 @@
-table dim_product
-	lineageTag: bdfd8ef8-77b3-4467-8e59-3e2c680494c7
-	sourceLineageTag: [curated].[dim_product]
+table V_Dim_Product
+	lineageTag: dbbb6995-2fa9-4ac4-849c-bdaf4ac72979
+	sourceLineageTag: [serving].[V_Dim_Product]
 
 	column ItemID
 		dataType: int64
 		formatString: 0
 		sourceProviderType: bigint
-		lineageTag: 8609ee6e-c35e-4cdc-bc33-a72704553955
+		lineageTag: 8a33aede-09d5-49a3-9150-824a6abfd30a
 		sourceLineageTag: ItemID
 		summarizeBy: none
 		sourceColumn: ItemID
 
-		annotation SummarizationSetBy = Automatic
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
 
 	column ItemName
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: 62c25608-2e1a-4cd1-be37-da558bd412c4
+		lineageTag: d01e5c03-7fab-429e-af4d-65b80fd0a4ff
 		sourceLineageTag: ItemName
 		summarizeBy: none
 		sourceColumn: ItemName
@@ -26,18 +28,18 @@ table dim_product
 	column ItemInfo
 		dataType: string
 		sourceProviderType: varchar(8000)
-		lineageTag: cf00d7bf-b54e-4546-aa25-99bd2040ad9b
+		lineageTag: f1e9326a-ea62-4739-8c3f-6b6188891cc6
 		sourceLineageTag: ItemInfo
 		summarizeBy: none
 		sourceColumn: ItemInfo
 
 		annotation SummarizationSetBy = Automatic
 
-	partition dim_product = entity
+	partition V_Dim_Product = entity
 		mode: directLake
 		source
-			entityName: dim_product
-			schemaName: curated
+			entityName: V_Dim_Product
+			schemaName: serving
 			expressionSource: DatabaseQuery
 
 	annotation PBI_ResultType = Table

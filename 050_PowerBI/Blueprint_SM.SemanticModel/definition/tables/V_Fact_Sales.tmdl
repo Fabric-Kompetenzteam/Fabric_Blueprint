@@ -1,0 +1,164 @@
+table V_Fact_Sales
+	lineageTag: 0ea1af36-55cb-4cfd-bd08-1c9b45bc0a62
+	sourceLineageTag: [serving].[V_Fact_Sales]
+
+	measure Qunatity = SUM(V_Fact_Sales[Quantity])
+		formatString: 0
+		lineageTag: d1314376-d65d-4d58-82c8-0c4d3307a70a
+
+		changedProperty = Name
+
+	measure Revenue = SUMX(V_Fact_Sales,V_Fact_Sales[Quantity]*V_Fact_Sales[UnitPrice])
+		lineageTag: 9e3bd9e4-d93e-4322-b851-99fcc0ee6b50
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue PY' =
+			
+			CALCULATE(
+			    [Revenue],
+			    SAMEPERIODLASTYEAR( V_Dim_Date[FullDate] )
+			)
+		lineageTag: 34682659-d8fb-4b10-b93f-69749326a1b7
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Δ Revenue PY' =
+			
+			[Revenue] - [Revenue PY]
+		lineageTag: 5849a233-a1a3-47cc-a0ae-e0986a64c688
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Δ Revenue PY %' =
+			
+			DIVIDE(
+			    [Δ Revenue PY],
+			    [Revenue PY]
+			)
+		lineageTag: 582ada0e-4461-426f-9566-be12fa370a26
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue Bars' = [Revenue]
+		lineageTag: 27abda8b-6524-401a-a909-9d0ab4ae97ea
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Δ Revenue PY % Bars' = [Δ Revenue PY %]
+		lineageTag: 78fac637-0277-4f1a-9214-5795abbdb22e
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CustomerID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: d9a4e291-922f-4b9b-a4a6-eb7706c4dbfe
+		sourceLineageTag: CustomerID
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 3396daa6-8f31-46da-8f21-b3e07aae84d5
+		sourceLineageTag: ItemID
+		summarizeBy: none
+		sourceColumn: ItemID
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderDateID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 42017e0d-b333-43f0-ac06-8117b9364de9
+		sourceLineageTag: OrderDateID
+		summarizeBy: none
+		sourceColumn: OrderDateID
+
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
+
+	column SalesOrderNumber
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e1406c2f-73b5-4fc5-b1ba-68e4faeb1eea
+		sourceLineageTag: SalesOrderNumber
+		summarizeBy: none
+		sourceColumn: SalesOrderNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrderLineNumber
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: aa04bd84-4b0c-487a-83fb-d2e159d6b71f
+		sourceLineageTag: SalesOrderLineNumber
+		summarizeBy: sum
+		sourceColumn: SalesOrderLineNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5d24dced-2307-4fad-b5a6-3791499f9197
+		sourceLineageTag: Quantity
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitPrice
+		dataType: double
+		sourceProviderType: decimal(18, 2)
+		lineageTag: d4ce70bf-0380-4950-ab77-0e848211608c
+		sourceLineageTag: UnitPrice
+		summarizeBy: sum
+		sourceColumn: UnitPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Tax
+		dataType: double
+		sourceProviderType: decimal(18, 2)
+		lineageTag: c03090c0-ca38-4558-8b2d-b9b11385ce0d
+		sourceLineageTag: Tax
+		summarizeBy: sum
+		sourceColumn: Tax
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition V_Fact_Sales = entity
+		mode: directLake
+		source
+			entityName: V_Fact_Sales
+			schemaName: serving
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

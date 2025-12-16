@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "serving_ddl_vdimproduct"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "011cf228-97bd-90aa-46d6-1af34e0d90ce"
+  }
+}

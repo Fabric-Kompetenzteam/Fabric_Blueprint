@@ -1,15 +1,12 @@
-relationship 41a40f49-5f51-b185-7467-78d7c6d2379d
-	relyOnReferentialIntegrity
-	fromColumn: fact_sales.ItemID
-	toColumn: dim_product.ItemID
+relationship 9b52fad9-eb2c-22c4-0563-1386272a5d1a
+	fromColumn: V_Fact_Sales.CustomerID
+	toColumn: V_Dim_Customer.CustomerID
 
-relationship 2c2131df-5785-a1f8-d32e-02c523ca557f
-	relyOnReferentialIntegrity
-	fromColumn: fact_sales.OrderDateID
-	toColumn: dim_date.DateID
+relationship 2954d611-6479-53ba-79d7-7686907387be
+	fromColumn: V_Fact_Sales.OrderDateID
+	toColumn: V_Dim_Date.DateID
 
-relationship 21103963-4a33-257f-68c6-11faa7c9be61
-	relyOnReferentialIntegrity
-	fromColumn: fact_sales.CustomerID
-	toColumn: dim_customer.CustomerID
+relationship 8018127b-3899-9228-75d3-07f873ed3c15
+	fromColumn: V_Fact_Sales.ItemID
+	toColumn: V_Dim_Product.ItemID
 

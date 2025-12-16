@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "4554de6cab9e1385f780",
   "position": {
     "x": 1050.8333333333335,
@@ -7,7 +7,7 @@
     "z": 8000,
     "height": 58.333333333333336,
     "width": 222.5,
-    "tabOrder": 4000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_date"
+                      "Entity": "V_Dim_Date"
                     }
                   },
                   "Property": "Year"
                 }
               },
-              "queryRef": "dim_date.Year",
+              "queryRef": "V_Dim_Date.Year",
               "nativeQueryRef": "Year",
               "active": true
             },
@@ -35,13 +35,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_date"
+                      "Entity": "V_Dim_Date"
                     }
                   },
                   "Property": "Month"
                 }
               },
-              "queryRef": "dim_date.Month",
+              "queryRef": "V_Dim_Date.Month",
               "nativeQueryRef": "Month",
               "active": false
             },
@@ -50,13 +50,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_date"
+                      "Entity": "V_Dim_Date"
                     }
                   },
                   "Property": "FullDate"
                 }
               },
-              "queryRef": "dim_date.FullDate",
+              "queryRef": "V_Dim_Date.FullDate",
               "nativeQueryRef": "FullDate",
               "active": false
             }
@@ -70,15 +70,16 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "dim_date"
+                    "Entity": "V_Dim_Date"
                   }
                 },
                 "Property": "Year"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
-        ]
+        ],
+        "isDefaultSort": true
       }
     },
     "objects": {
@@ -103,8 +104,8 @@
                 "Version": 2,
                 "From": [
                   {
-                    "Name": "d",
-                    "Entity": "dim_date",
+                    "Name": "v",
+                    "Entity": "V_Dim_Date",
                     "Type": 0
                   }
                 ],
@@ -117,7 +118,7 @@
                             "Column": {
                               "Expression": {
                                 "SourceRef": {
-                                  "Source": "d"
+                                  "Source": "v"
                                 }
                               },
                               "Property": "Year"
@@ -128,7 +129,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "2021L"
+                                "Value": "2020L"
                               }
                             }
                           ]
@@ -142,7 +143,7 @@
                             "Column": {
                               "Expression": {
                                 "SourceRef": {
-                                  "Entity": "dim_date"
+                                  "Entity": "V_Dim_Date"
                                 }
                               },
                               "Property": "Year"
@@ -156,7 +157,7 @@
                                 "0": [
                                   {
                                     "Literal": {
-                                      "Value": "2021L"
+                                      "Value": "2020L"
                                     }
                                   }
                                 ]
@@ -169,7 +170,7 @@
                                 "Column": {
                                   "Expression": {
                                     "SourceRef": {
-                                      "Entity": "dim_date"
+                                      "Entity": "V_Dim_Date"
                                     }
                                   },
                                   "Property": "Year"
@@ -180,7 +181,7 @@
                         },
                         "valueMap": [
                           {
-                            "0": "2021"
+                            "0": "2020"
                           }
                         ]
                       }
@@ -254,79 +255,5 @@
       "filterChanges": true
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "cd26ec579f13469792f4",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_date"
-              }
-            },
-            "Property": "FullDate"
-          }
-        },
-        "type": "RelativeDate",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "dim_date",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Between": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Source": "d"
-                        }
-                      },
-                      "Property": "FullDate"
-                    }
-                  },
-                  "LowerBound": {
-                    "DateSpan": {
-                      "Expression": {
-                        "DateAdd": {
-                          "Expression": {
-                            "DateAdd": {
-                              "Expression": {
-                                "Now": {}
-                              },
-                              "Amount": 1,
-                              "TimeUnit": 0
-                            }
-                          },
-                          "Amount": -10,
-                          "TimeUnit": 3
-                        }
-                      },
-                      "TimeUnit": 0
-                    }
-                  },
-                  "UpperBound": {
-                    "DateSpan": {
-                      "Expression": {
-                        "Now": {}
-                      },
-                      "TimeUnit": 0
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
-      }
-    ]
   }
 }
