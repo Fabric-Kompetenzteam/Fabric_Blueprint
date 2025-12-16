@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "9f9dfdc570244d0f9da7",
   "position": {
     "x": 828.33333333333337,
@@ -7,7 +7,7 @@
     "z": 9000,
     "height": 58.333333333333336,
     "width": 222.5,
-    "tabOrder": 9000
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_customer"
+                      "Entity": "V_Dim_Customer"
                     }
                   },
                   "Property": "CustomerName"
                 }
               },
-              "queryRef": "dim_customer.CustomerName",
+              "queryRef": "V_Dim_Customer.CustomerName",
               "nativeQueryRef": "CustomerName",
               "active": true
             }
@@ -34,6 +34,21 @@
         }
       },
       "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "V_Dim_Customer"
+                  }
+                },
+                "Property": "CustomerName"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
         "isDefaultSort": true
       }
     },
@@ -104,6 +119,11 @@
               }
             }
           }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
         }
       ]
     },
@@ -179,76 +199,44 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "cd26ec579f13469792f4",
+        "name": "1ad564ef63089b3498dd",
+        "ordinal": 0,
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "dim_date"
+                "Entity": "V_Dim_Customer"
+              }
+            },
+            "Property": "CustomerName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "daf5b3b02f5aeaa74875",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "V_Dim_Date"
               }
             },
             "Property": "FullDate"
           }
         },
         "type": "RelativeDate",
-        "filter": {
-          "Version": 2,
-          "From": [
+        "howCreated": "User",
+        "objects": {
+          "general": [
             {
-              "Name": "d",
-              "Entity": "dim_date",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Between": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Source": "d"
-                        }
-                      },
-                      "Property": "FullDate"
-                    }
-                  },
-                  "LowerBound": {
-                    "DateSpan": {
-                      "Expression": {
-                        "DateAdd": {
-                          "Expression": {
-                            "DateAdd": {
-                              "Expression": {
-                                "Now": {}
-                              },
-                              "Amount": 1,
-                              "TimeUnit": 0
-                            }
-                          },
-                          "Amount": -10,
-                          "TimeUnit": 3
-                        }
-                      },
-                      "TimeUnit": 0
-                    }
-                  },
-                  "UpperBound": {
-                    "DateSpan": {
-                      "Expression": {
-                        "Now": {}
-                      },
-                      "TimeUnit": 0
-                    }
-                  }
-                }
-              }
+              "properties": {}
             }
           ]
-        },
-        "howCreated": "User"
+        }
       }
-    ]
+    ],
+    "filterSortOrder": "Custom"
   }
 }

@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "38e3f637f62a2ccabe59",
   "position": {
-    "x": 7.5,
-    "y": 80,
+    "x": 1.2262922323847731,
+    "y": 79.708995105010246,
     "z": 11000,
-    "height": 62.5,
-    "width": 1265.8333333333335,
-    "tabOrder": 11000
+    "height": 62.540903851623426,
+    "width": 1265.5335838210858,
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -20,60 +20,56 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Schema": "extension",
-                      "Entity": "fact_sales"
+                      "Entity": "V_Fact_Sales"
                     }
                   },
                   "Property": "Revenue"
                 }
               },
-              "queryRef": "fact_sales.Revenue",
-              "nativeQueryRef": "Revenue"
+              "queryRef": "V_Fact_Sales.Revenue",
+              "nativeQueryRef": "Revenue1"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Schema": "extension",
-                      "Entity": "fact_sales"
+                      "Entity": "V_Fact_Sales"
                     }
                   },
                   "Property": "Revenue PY"
                 }
               },
-              "queryRef": "fact_sales.Revenue PY",
-              "nativeQueryRef": "Revenue PY"
+              "queryRef": "V_Fact_Sales.Revenue PY",
+              "nativeQueryRef": "Revenue PY1"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Schema": "extension",
-                      "Entity": "fact_sales"
-                    }
-                  },
-                  "Property": "Δ Revenue PY"
-                }
-              },
-              "queryRef": "fact_sales.Δ Revenue PY",
-              "nativeQueryRef": "Δ Revenue PY"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Schema": "extension",
-                      "Entity": "fact_sales"
+                      "Entity": "V_Fact_Sales"
                     }
                   },
                   "Property": "Δ Revenue PY %"
                 }
               },
-              "queryRef": "fact_sales.Δ Revenue PY %",
-              "nativeQueryRef": "Δ Revenue PY %"
+              "queryRef": "V_Fact_Sales.Δ Revenue PY %",
+              "nativeQueryRef": "Δ Revenue PY %1"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "V_Fact_Sales"
+                    }
+                  },
+                  "Property": "Δ Revenue PY"
+                }
+              },
+              "queryRef": "V_Fact_Sales.Δ Revenue PY",
+              "nativeQueryRef": "Δ Revenue PY1"
             }
           ]
         }
@@ -85,8 +81,7 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Schema": "extension",
-                    "Entity": "fact_sales"
+                    "Entity": "V_Fact_Sales"
                   }
                 },
                 "Property": "Revenue"
@@ -153,74 +148,6 @@
               }
             }
           }
-        },
-        {
-          "properties": {},
-          "selector": {
-            "metadata": "fact_sales.Δ Revenue PY"
-          }
-        },
-        {
-          "properties": {
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Schema": "extension",
-                          "Entity": "fact_sales"
-                        }
-                      },
-                      "Property": "Color Δ Revenue PY"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "fact_sales.Δ Revenue PY"
-          }
-        },
-        {
-          "properties": {
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Schema": "extension",
-                          "Entity": "fact_sales"
-                        }
-                      },
-                      "Property": "Color Δ Revenue PY"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "fact_sales.Δ Revenue PY %"
-          }
         }
       ],
       "layout": [
@@ -279,70 +206,6 @@
           },
           "selector": {
             "id": "default"
-          }
-        }
-      ],
-      "referenceLabel": [
-        {
-          "properties": {},
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "fact_sales.Revenue",
-            "id": "field-f883d94f-d135-84dc-8ede-237b089eb9bc",
-            "order": 0
-          }
-        }
-      ],
-      "referenceLabelValue": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "fact_sales.Revenue"
-          }
-        },
-        {
-          "properties": {
-            "valueFontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Schema": "extension",
-                          "Entity": "fact_sales"
-                        }
-                      },
-                      "Property": "Color Δ Revenue PY"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "fact_sales.Revenue"
           }
         }
       ]
@@ -506,5 +369,65 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "af8924fbfdff7c4fddbd",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "V_Fact_Sales"
+              }
+            },
+            "Property": "Revenue"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6fbe5dddda5c459a4b3c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "V_Fact_Sales"
+              }
+            },
+            "Property": "Revenue PY"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c2e670fe654c64b613fd",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "V_Fact_Sales"
+              }
+            },
+            "Property": "Δ Revenue PY %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9d37eced0c5d433a371b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "V_Fact_Sales"
+              }
+            },
+            "Property": "Δ Revenue PY"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

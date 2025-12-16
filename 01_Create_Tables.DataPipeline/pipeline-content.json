@@ -161,6 +161,102 @@
         },
         "name": "CreateSchema",
         "dependsOn": []
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "356f7215-7a83-9794-4730-8f8ef49ba4b0",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "sessionTag": "CreateTables"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Stage_DDL_FactSales",
+        "dependsOn": [
+          {
+            "activity": "Curated_DDL_FactSales",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "4fe05fc9-62c3-a4b7-4e68-30cb972a9014",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "sessionTag": "CreateTables"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Serving_DDL_DimCustomer",
+        "dependsOn": [
+          {
+            "activity": "Curated_DDL_DimCustomer",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "011cf228-97bd-90aa-46d6-1af34e0d90ce",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "sessionTag": "CreateTables"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Serving_DDL_DimProduct",
+        "dependsOn": [
+          {
+            "activity": "Curated_DDL_DimProduct",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "d7260814-f1ab-9c89-4609-9c9020ba0d50",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "sessionTag": "CreateTables"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Serving_DDL_DimDate",
+        "dependsOn": [
+          {
+            "activity": "Curated_DDL_DimDate",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
       }
     ]
   }

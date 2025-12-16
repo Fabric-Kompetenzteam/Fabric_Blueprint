@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "e3041822cf096919c97d",
   "position": {
     "x": 507.5,
@@ -7,7 +7,7 @@
     "z": 5000,
     "height": 153.33333333333334,
     "width": 760,
-    "tabOrder": 5000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "lineChart",
@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_date"
+                      "Entity": "V_Dim_Date"
                     }
                   },
                   "Property": "Year"
                 }
               },
-              "queryRef": "dim_date.Year",
+              "queryRef": "V_Dim_Date.Year",
               "nativeQueryRef": "Year",
               "active": true
             },
@@ -35,35 +35,17 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_date"
+                      "Entity": "V_Dim_Date"
                     }
                   },
                   "Property": "Month"
                 }
               },
-              "queryRef": "dim_date.Month",
+              "queryRef": "V_Dim_Date.Month",
               "nativeQueryRef": "Month",
               "active": true
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_date"
-                    }
-                  },
-                  "Property": "FullDate"
-                }
-              },
-              "queryRef": "dim_date.FullDate",
-              "nativeQueryRef": "FullDate",
-              "active": false
             }
           ]
-        },
-        "Y": {
-          "projections": []
         },
         "Y2": {
           "projections": [
@@ -72,30 +54,28 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Schema": "extension",
-                      "Entity": "fact_sales"
+                      "Entity": "V_Fact_Sales"
                     }
                   },
                   "Property": "Revenue"
                 }
               },
-              "queryRef": "fact_sales.Revenue",
-              "nativeQueryRef": "Revenue"
+              "queryRef": "V_Fact_Sales.Revenue",
+              "nativeQueryRef": "Revenue1"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Schema": "extension",
-                      "Entity": "fact_sales"
+                      "Entity": "V_Fact_Sales"
                     }
                   },
                   "Property": "Revenue PY"
                 }
               },
-              "queryRef": "fact_sales.Revenue PY",
-              "nativeQueryRef": "Revenue PY"
+              "queryRef": "V_Fact_Sales.Revenue PY",
+              "nativeQueryRef": "Revenue PY1"
             }
           ]
         }
@@ -107,16 +87,28 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "dim_date"
+                    "Entity": "V_Dim_Date"
                   }
                 },
                 "Property": "Year"
               }
             },
             "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "V_Dim_Date"
+                  }
+                },
+                "Property": "Month"
+              }
+            },
+            "direction": "Ascending"
           }
-        ],
-        "isDefaultSort": true
+        ]
       }
     },
     "objects": {
@@ -161,6 +153,13 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "maxMarginFactor": {
+              "expr": {
+                "Literal": {
+                  "Value": "22L"
                 }
               }
             }
@@ -235,43 +234,6 @@
                 }
               }
             }
-          }
-        },
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": -0.2
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "fact_sales.Revenue PY"
-          }
-        },
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#333333'"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "fact_sales.Revenue"
           }
         }
       ],

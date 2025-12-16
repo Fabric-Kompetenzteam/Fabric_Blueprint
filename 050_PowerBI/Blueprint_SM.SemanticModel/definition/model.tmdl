@@ -11,10 +11,10 @@ annotation __PBI_TimeIntelligenceEnabled = 0
 
 annotation PBI_QueryOrder = ["DatabaseQuery"]
 
-annotation PBI_ProTooling = ["WebModelingEdit"]
+annotation PBI_ProTooling = ["SLL", "WebModelingEdit", "SLL_UpdateDLConnection_SQL"]
 
-ref table dim_product
-ref table dim_date
-ref table dim_customer
-ref table fact_sales
+ref table V_Dim_Date
+ref table V_Dim_Product
+ref table V_Dim_Customer
+ref table V_Fact_Sales
 
